@@ -5,10 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ValidatorEntry } from "./components/validators/validator";
 export namespace Components {
     interface FormTest {
-        "validator": string;
-        "value": string;
+        "validator": Array<string | ValidatorEntry>;
     }
     interface InputTester {
     }
@@ -63,8 +63,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface FormTest {
-        "validator"?: string;
-        "value"?: string;
+        "validator"?: Array<string | ValidatorEntry>;
     }
     interface InputTester {
     }

@@ -1,6 +1,6 @@
-import { h, Component, Prop, Watch, State } from "@stencil/core";
-import { Validator } from "../validators/validator";
-import { defaultValidator, validatorFactory } from "../validators/validator.factory";
+import { h, Component, Prop, State } from "@stencil/core";
+import { Validator, ValidatorEntry } from "../validators/validator";
+import { defaultValidator, getValidator } from "../validators/validator.factory";
 
 @Component({
   tag: "form-test",
@@ -9,49 +9,29 @@ import { defaultValidator, validatorFactory } from "../validators/validator.fact
 })
 export class FormTest {
 
-  @Prop() validator: string = "email";
+  @Prop() validator: Array<string | ValidatorEntry> = [{name: 'length', options: {min: 8}}, 'email'];
 
-  @Prop({mutable: true}) value: string;
-  @State() valueError: string = "";
+  @State() value: string = "";
 
   @State() isSubmitted: boolean = false;
 
   _validator: Validator<string> = defaultValidator;
 
-  componentWillLoad() {
-    this._validator = validatorFactory(this.validator);
-  }
-
-  componentWillUpdate() {
-    this._validator = validatorFactory(this.validator);
-  }
-
-  // @Watch("value")
-  // validateInput(newValue: string, _oldValue?: string) {
-  //   this.valueError = "";
-  //   if (this.isSubmitted) {
-  //     // don't allow `thingToDo` to be the empty string  
-  //     const isBlank = typeof newValue !== 'string' || newValue === '';
-  //     if (isBlank) { 
-  //         this.valueError = 'thingToDo is a required property and cannot be empty'
-  //     };
-  //     // don't allow `thingToDo` to be a string with a length of 1
-  //     const has2chars = typeof newValue === 'string' && newValue.length >= 2;
-  //     if (!has2chars) {
-  //         this.valueError = 'thingToDo must have a length of more than 1 character'
-  //     };
-  //   }
-  // }
-
   handleSubmit(e) {
     e.preventDefault()
     this.isSubmitted = true;
-    // this.validateInput(this.value);
-    console.log(this.value);
   }
 
   handleChanges(e) {
     this.value = e.target.value;
+  }
+
+  componentWillLoad() {
+    this._validator = getValidator(this.validator);
+  }
+
+  componentWillUpdate() {
+    this._validator = getValidator(this.validator);
   }
 
   render () {
