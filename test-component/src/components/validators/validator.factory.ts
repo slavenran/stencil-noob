@@ -1,9 +1,13 @@
 import { EmailValidator } from "./custom-validators/email-validator";
 import { getLengthValidator } from "./custom-validators/length-validator";
+import { TelephoneValidator } from "./custom-validators/telephone-validator";
+import { ZipValidator } from "./custom-validators/zip-validator";
 import { Validator, ValidatorEntry } from "./validator";
 
 export enum ValidatorsName {
   email = 'email',
+  telephone = 'telephone',
+  zip = 'zip',
   length = 'length'
 }
 
@@ -42,6 +46,10 @@ export function validatorFactory(name: string, options: any): Validator<any> {
       return EmailValidator;
     case (ValidatorsName.length):
       return getLengthValidator(options.min, options.max);
+    case (ValidatorsName.telephone):
+      return TelephoneValidator;
+    case (ValidatorsName.zip):
+      return ZipValidator;
     default:
       return defaultValidator;
   }

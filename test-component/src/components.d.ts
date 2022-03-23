@@ -8,7 +8,11 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ValidatorEntry } from "./components/validators/validator";
 export namespace Components {
     interface FormTest {
-        "validator": Array<string | ValidatorEntry>;
+        "emailValidator": Array<string | ValidatorEntry>;
+        "genderValidator": Array<string | ValidatorEntry>;
+        "telephoneValidator": Array<string | ValidatorEntry>;
+        "usernameValidator": Array<string | ValidatorEntry>;
+        "zipValidator": Array<string | ValidatorEntry>;
     }
     interface InputTester {
     }
@@ -63,7 +67,11 @@ declare global {
 }
 declare namespace LocalJSX {
     interface FormTest {
-        "validator"?: Array<string | ValidatorEntry>;
+        "emailValidator"?: Array<string | ValidatorEntry>;
+        "genderValidator"?: Array<string | ValidatorEntry>;
+        "telephoneValidator"?: Array<string | ValidatorEntry>;
+        "usernameValidator"?: Array<string | ValidatorEntry>;
+        "zipValidator"?: Array<string | ValidatorEntry>;
     }
     interface InputTester {
     }
