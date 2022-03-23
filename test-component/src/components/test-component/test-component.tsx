@@ -4,7 +4,6 @@ import { Component, Event, EventEmitter, State, h } from "@stencil/core";
   tag: 'test-component',
   styleUrl: 'test-component.scss'
 })
-
 export class TestComponent {
   public list: Array<any> = [
     {
@@ -37,7 +36,7 @@ export class TestComponent {
       url: "",
       imageUrl: ""
     }
-  ];
+  ]
 
   @State() toggle: boolean = false;
 
@@ -51,7 +50,7 @@ export class TestComponent {
   render () {
     return (
       <div>
-        <div class="jumbotron">
+        <div class="jumbotron mb-5">
           <center>
             <h1 class="display-3">Welcome!</h1>
             <p class="lead">This is a Stencil sample application - Demonstrating the power of pure web components!</p>
@@ -77,6 +76,6 @@ export class TestComponent {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }

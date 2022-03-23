@@ -6,6 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface FormTest {
+        "validator": string;
+        "value": string;
+    }
+    interface InputTester {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -24,6 +30,18 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLFormTestElement extends Components.FormTest, HTMLStencilElement {
+    }
+    var HTMLFormTestElement: {
+        prototype: HTMLFormTestElement;
+        new (): HTMLFormTestElement;
+    };
+    interface HTMLInputTesterElement extends Components.InputTester, HTMLStencilElement {
+    }
+    var HTMLInputTesterElement: {
+        prototype: HTMLInputTesterElement;
+        new (): HTMLInputTesterElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -37,11 +55,19 @@ declare global {
         new (): HTMLTestComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "form-test": HTMLFormTestElement;
+        "input-tester": HTMLInputTesterElement;
         "my-component": HTMLMyComponentElement;
         "test-component": HTMLTestComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface FormTest {
+        "validator"?: string;
+        "value"?: string;
+    }
+    interface InputTester {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -60,6 +86,8 @@ declare namespace LocalJSX {
         "onOnToggle"?: (event: CustomEvent<any>) => void;
     }
     interface IntrinsicElements {
+        "form-test": FormTest;
+        "input-tester": InputTester;
         "my-component": MyComponent;
         "test-component": TestComponent;
     }
@@ -68,6 +96,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "form-test": LocalJSX.FormTest & JSXBase.HTMLAttributes<HTMLFormTestElement>;
+            "input-tester": LocalJSX.InputTester & JSXBase.HTMLAttributes<HTMLInputTesterElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "test-component": LocalJSX.TestComponent & JSXBase.HTMLAttributes<HTMLTestComponentElement>;
         }
