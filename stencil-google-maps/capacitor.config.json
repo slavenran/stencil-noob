@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.yourappname",
+  "appName": "stencil-google-maps",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

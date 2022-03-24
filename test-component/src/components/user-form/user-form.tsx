@@ -1,6 +1,6 @@
 import { h, Component, Prop, State, Watch } from "@stencil/core";
-import { Validator, ValidatorEntry } from "../validators/validator";
-import { defaultValidator, getValidator } from "../validators/validator.factory";
+import { Validator, ValidatorEntry } from "./validators/validator";
+import { defaultValidator, getValidator } from "./validators/validator.factory";
 
 interface User {
   username: string;
