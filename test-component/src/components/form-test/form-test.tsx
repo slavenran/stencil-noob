@@ -115,9 +115,9 @@ export class FormTest {
             <input type="text" placeholder="ZIP" value={this.zip} onInput={(e) => this.handleChanges(e, States.zip)} />
             {(this.isSubmitted && !this.isValid(States.zip)) && <div class="error">{this._zipValidator.errorMessage}</div>}
           </div>
-          <div>
+          <div class="select">
             <select name="gender" onChange={(e) => this.handleChanges(e, States.gender)}>
-              <option value="" selected disabled hidden>Choose a gender</option>
+              <option value="" selected disabled hidden>Choose a gender...</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
