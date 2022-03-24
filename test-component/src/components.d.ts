@@ -7,24 +7,6 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ValidatorEntry } from "./components/validators/validator";
 export namespace Components {
-    interface InputTester {
-    }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
-    interface TestComponent {
-    }
     interface UserForm {
         "emailValidator": Array<string | ValidatorEntry>;
         "genderValidator": Array<string | ValidatorEntry>;
@@ -34,24 +16,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLInputTesterElement extends Components.InputTester, HTMLStencilElement {
-    }
-    var HTMLInputTesterElement: {
-        prototype: HTMLInputTesterElement;
-        new (): HTMLInputTesterElement;
-    };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
-    interface HTMLTestComponentElement extends Components.TestComponent, HTMLStencilElement {
-    }
-    var HTMLTestComponentElement: {
-        prototype: HTMLTestComponentElement;
-        new (): HTMLTestComponentElement;
-    };
     interface HTMLUserFormElement extends Components.UserForm, HTMLStencilElement {
     }
     var HTMLUserFormElement: {
@@ -59,32 +23,10 @@ declare global {
         new (): HTMLUserFormElement;
     };
     interface HTMLElementTagNameMap {
-        "input-tester": HTMLInputTesterElement;
-        "my-component": HTMLMyComponentElement;
-        "test-component": HTMLTestComponentElement;
         "user-form": HTMLUserFormElement;
     }
 }
 declare namespace LocalJSX {
-    interface InputTester {
-    }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
-    interface TestComponent {
-        "onOnToggle"?: (event: CustomEvent<any>) => void;
-    }
     interface UserForm {
         "emailValidator"?: Array<string | ValidatorEntry>;
         "genderValidator"?: Array<string | ValidatorEntry>;
@@ -93,9 +35,6 @@ declare namespace LocalJSX {
         "zipValidator"?: Array<string | ValidatorEntry>;
     }
     interface IntrinsicElements {
-        "input-tester": InputTester;
-        "my-component": MyComponent;
-        "test-component": TestComponent;
         "user-form": UserForm;
     }
 }
@@ -103,9 +42,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "input-tester": LocalJSX.InputTester & JSXBase.HTMLAttributes<HTMLInputTesterElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
-            "test-component": LocalJSX.TestComponent & JSXBase.HTMLAttributes<HTMLTestComponentElement>;
             "user-form": LocalJSX.UserForm & JSXBase.HTMLAttributes<HTMLUserFormElement>;
         }
     }
