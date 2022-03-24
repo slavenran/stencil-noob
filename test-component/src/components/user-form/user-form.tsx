@@ -18,11 +18,11 @@ enum States {
   gender = 'gender'
 }
 @Component({
-  tag: "form-test",
-  styleUrl: "form-test.scss",
+  tag: "user-form",
+  styleUrl: "user-form.scss",
   shadow: true
 })
-export class FormTest {
+export class UserForm {
 
   @Prop() usernameValidator: Array<string | ValidatorEntry> = [{name: 'length', options: {min: 5, max: 25}}];
   @Prop() emailValidator: Array<string | ValidatorEntry> = ['email'];
