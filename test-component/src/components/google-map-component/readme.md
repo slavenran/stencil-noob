@@ -5,18 +5,12 @@
 <!-- Auto Generated Below -->
 
 
-## Dependencies
+## Properties
 
-### Depends on
+| Property | Attribute | Description | Type     | Default     |
+| -------- | --------- | ----------- | -------- | ----------- |
+| `apiKey` | `api-key` |             | `string` | `undefined` |
 
-- map-component
-
-### Graph
-```mermaid
-graph TD;
-  google-map-component --> map-component
-  style google-map-component fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

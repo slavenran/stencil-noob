@@ -5,11 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ValidatorEntry } from "./components/validators/validator";
+import { ValidatorEntry } from "./components/user-form/validators/validator";
 export namespace Components {
     interface GoogleMapComponent {
-    }
-    interface GoogleMapTestComponent {
+        "apiKey": string;
     }
     interface UserForm {
         "emailValidator": Array<string | ValidatorEntry>;
@@ -26,12 +25,6 @@ declare global {
         prototype: HTMLGoogleMapComponentElement;
         new (): HTMLGoogleMapComponentElement;
     };
-    interface HTMLGoogleMapTestComponentElement extends Components.GoogleMapTestComponent, HTMLStencilElement {
-    }
-    var HTMLGoogleMapTestComponentElement: {
-        prototype: HTMLGoogleMapTestComponentElement;
-        new (): HTMLGoogleMapTestComponentElement;
-    };
     interface HTMLUserFormElement extends Components.UserForm, HTMLStencilElement {
     }
     var HTMLUserFormElement: {
@@ -40,14 +33,12 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "google-map-component": HTMLGoogleMapComponentElement;
-        "google-map-test-component": HTMLGoogleMapTestComponentElement;
         "user-form": HTMLUserFormElement;
     }
 }
 declare namespace LocalJSX {
     interface GoogleMapComponent {
-    }
-    interface GoogleMapTestComponent {
+        "apiKey"?: string;
     }
     interface UserForm {
         "emailValidator"?: Array<string | ValidatorEntry>;
@@ -58,7 +49,6 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "google-map-component": GoogleMapComponent;
-        "google-map-test-component": GoogleMapTestComponent;
         "user-form": UserForm;
     }
 }
@@ -67,7 +57,6 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "google-map-component": LocalJSX.GoogleMapComponent & JSXBase.HTMLAttributes<HTMLGoogleMapComponentElement>;
-            "google-map-test-component": LocalJSX.GoogleMapTestComponent & JSXBase.HTMLAttributes<HTMLGoogleMapTestComponentElement>;
             "user-form": LocalJSX.UserForm & JSXBase.HTMLAttributes<HTMLUserFormElement>;
         }
     }
