@@ -1,4 +1,4 @@
-import { h, Component, Prop, Method, State, Watch, Element } from '@stencil/core';
+import { h, Component, Prop, Method } from '@stencil/core';
 import { Geolocation } from '@capacitor/geolocation';
 import { Network } from '@capacitor/network';
 
