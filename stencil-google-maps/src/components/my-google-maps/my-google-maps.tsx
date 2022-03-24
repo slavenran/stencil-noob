@@ -1,4 +1,4 @@
-import { h, Component, Prop, Method } from '@stencil/core';
+import { h, Component, Prop, Method, State, Watch, Element } from '@stencil/core';
 import { Geolocation } from '@capacitor/geolocation';
 import { Network } from '@capacitor/network';
 
@@ -8,10 +8,13 @@ import { Network } from '@capacitor/network';
 })
 export class MyGoogleMaps {
   @Prop() apiKey: string;
+
   public map: any;
   public markers: any[] = [];
   private mapsLoaded: boolean = false;
   private networkHandler = null;
+
+  @Element() private mapElement: HTMLElement;
 
   render() {
     return <div id='google-map-container'></div>;
@@ -110,7 +113,7 @@ export class MyGoogleMaps {
           center: latLng,
           zoom: 15
         };
-        this.map = new google.maps.Map(document.getElementById('google-map-container'), mapOptions);
+        this.map = new google.maps.Map(this.mapElement.getElementsByTagName('div')[0], mapOptions);
         resolve(true);
       }, () => {
         reject('Could not initialise map');
