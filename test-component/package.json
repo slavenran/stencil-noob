@@ -26,8 +26,10 @@
     "generate": "stencil generate"
   },
   "dependencies": {
+    "@edgeworkscreative/ewc-google-map": "0.0.1",
     "@stencil/core": "^2.13.0",
-    "@stencil/sass": "^1.5.2"
+    "@stencil/sass": "^1.5.2",
+    "stencil-map": "0.0.1"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
