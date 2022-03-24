@@ -13,11 +13,10 @@ export class MyGoogleMaps {
   public markers: any[] = [];
   private mapsLoaded: boolean = false;
   private networkHandler = null;
-
-  @Element() private mapElement: HTMLElement;
+  private mapElement: HTMLElement;
 
   render() {
-    return <div id='google-map-container'></div>;
+    return <div ref={(el) => this.mapElement = el as HTMLElement} id='google-map-container'></div>;
   }
 
   componentDidLoad() {
@@ -113,7 +112,7 @@ export class MyGoogleMaps {
           center: latLng,
           zoom: 15
         };
-        this.map = new google.maps.Map(this.mapElement.getElementsByTagName('div')[0], mapOptions);
+        this.map = new google.maps.Map(this.mapElement, mapOptions);
         resolve(true);
       }, () => {
         reject('Could not initialise map');
