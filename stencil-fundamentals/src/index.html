@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/stencil-fundamentals.esm.js"></script>
+    <script nomodule src="/build/stencil-fundamentals.js"></script>
+  </head>
+  <body>
+    <custom-alert text="This is a changed alert" kind="error"></custom-alert>
+    <custom-alert text="Bruh" kind="success"></custom-alert>
+    <custom-alert text="Nooooooooooooo" kind="info"></custom-alert>
+
+    <custom-tab name="Tab1">Tab One</custom-tab>
+    <custom-tab name="Tab2" active><b>Tab Two</b></custom-tab>
+
+    <script>
+      function handleAcknowledge(e) {
+        console.log(e.target.text, e.detail.when)
+      }
+      document.addEventListener("acknowledge", handleAcknowledge)
+    </script>
+  </body>
+</html>
