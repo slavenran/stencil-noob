@@ -1,4 +1,8 @@
-import { h, Component, Prop, Event, EventEmitter } from '@stencil/core';
+import { h, Component, Prop, Event, EventEmitter, Listen } from '@stencil/core';
+
+export interface TabActivateEvent {
+  name: string;
+}
 
 @Component({
   tag: 'custom-tab',
@@ -8,6 +12,16 @@ import { h, Component, Prop, Event, EventEmitter } from '@stencil/core';
 export class CustomTab {
   @Prop() name: string;
   @Prop() active: boolean;
+
+  @Event() tabActivate: EventEmitter<TabActivateEvent>;
+
+  @Listen("click")
+  handleClick() {
+    this.active = true;
+    this.tabActivate.emit({
+      name: this.name
+    })
+  }
   
   getCSSClass = () => this.active ? "custom-tab active" : "custom-tab";
 

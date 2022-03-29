@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AcknowledgeEvent } from "./components/custom-alert/custom-alert";
+import { TabActivateEvent } from "./components/custom-tab/custom-tab";
 export namespace Components {
     interface CustomAlert {
         "kind": "info" | "success" | "error";
@@ -43,6 +44,7 @@ declare namespace LocalJSX {
     interface CustomTab {
         "active"?: boolean;
         "name"?: string;
+        "onTabActivate"?: (event: CustomEvent<TabActivateEvent>) => void;
     }
     interface IntrinsicElements {
         "custom-alert": CustomAlert;
