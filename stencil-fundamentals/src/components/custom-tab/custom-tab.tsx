@@ -11,7 +11,7 @@ export interface TabActivateEvent {
 })
 export class CustomTab {
   @Prop() name: string;
-  @Prop() active: boolean;
+  @Prop({mutable: true}) active: boolean;
 
   @Event() tabActivate: EventEmitter<TabActivateEvent>;
 
@@ -20,8 +20,8 @@ export class CustomTab {
     this.active = true;
     this.tabActivate.emit({
       name: this.name
-    })
-  }
+    });
+  };
   
   getCSSClass = () => this.active ? "custom-tab active" : "custom-tab";
 
@@ -30,6 +30,6 @@ export class CustomTab {
       <div class={this.getCSSClass()}>
         <slot />
       </div>
-    )
-  }
+    );
+  };
 }

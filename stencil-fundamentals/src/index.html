@@ -13,14 +13,9 @@
     <custom-alert text="Bruh" kind="success"></custom-alert>
     <custom-alert text="Nooooooooooooo" kind="info"></custom-alert> -->
 
-    <custom-tab name="Tab1">Tab One</custom-tab>
-    <custom-tab name="Tab2" active><b>Tab Two</b></custom-tab>
-
-    <script>
-      function handleAcknowledge(e) {
-        console.log(e.target.text, e.detail.when)
-      }
-      document.addEventListener("acknowledge", handleAcknowledge)
-    </script>
+    <custom-tabs active-tab="Tab1">
+      <custom-tab name="Tab1">Tab One</custom-tab>
+      <custom-tab name="Tab2"><b>Tab Two</b></custom-tab>
+    </custom-tabs>
   </body>
 </html>

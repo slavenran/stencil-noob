@@ -16,6 +16,9 @@ export namespace Components {
         "active": boolean;
         "name": string;
     }
+    interface CustomTabs {
+        "activeTab": string;
+    }
 }
 declare global {
     interface HTMLCustomAlertElement extends Components.CustomAlert, HTMLStencilElement {
@@ -30,9 +33,16 @@ declare global {
         prototype: HTMLCustomTabElement;
         new (): HTMLCustomTabElement;
     };
+    interface HTMLCustomTabsElement extends Components.CustomTabs, HTMLStencilElement {
+    }
+    var HTMLCustomTabsElement: {
+        prototype: HTMLCustomTabsElement;
+        new (): HTMLCustomTabsElement;
+    };
     interface HTMLElementTagNameMap {
         "custom-alert": HTMLCustomAlertElement;
         "custom-tab": HTMLCustomTabElement;
+        "custom-tabs": HTMLCustomTabsElement;
     }
 }
 declare namespace LocalJSX {
@@ -46,9 +56,13 @@ declare namespace LocalJSX {
         "name"?: string;
         "onTabActivate"?: (event: CustomEvent<TabActivateEvent>) => void;
     }
+    interface CustomTabs {
+        "activeTab"?: string;
+    }
     interface IntrinsicElements {
         "custom-alert": CustomAlert;
         "custom-tab": CustomTab;
+        "custom-tabs": CustomTabs;
     }
 }
 export { LocalJSX as JSX };
@@ -57,6 +71,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "custom-alert": LocalJSX.CustomAlert & JSXBase.HTMLAttributes<HTMLCustomAlertElement>;
             "custom-tab": LocalJSX.CustomTab & JSXBase.HTMLAttributes<HTMLCustomTabElement>;
+            "custom-tabs": LocalJSX.CustomTabs & JSXBase.HTMLAttributes<HTMLCustomTabsElement>;
         }
     }
 }
