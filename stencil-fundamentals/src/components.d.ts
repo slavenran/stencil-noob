@@ -12,6 +12,8 @@ export namespace Components {
         "kind": "info" | "success" | "error";
         "text": string;
     }
+    interface CustomModal {
+    }
     interface CustomTab {
         "active": boolean;
         "name": string;
@@ -27,6 +29,12 @@ declare global {
         prototype: HTMLCustomAlertElement;
         new (): HTMLCustomAlertElement;
     };
+    interface HTMLCustomModalElement extends Components.CustomModal, HTMLStencilElement {
+    }
+    var HTMLCustomModalElement: {
+        prototype: HTMLCustomModalElement;
+        new (): HTMLCustomModalElement;
+    };
     interface HTMLCustomTabElement extends Components.CustomTab, HTMLStencilElement {
     }
     var HTMLCustomTabElement: {
@@ -41,6 +49,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "custom-alert": HTMLCustomAlertElement;
+        "custom-modal": HTMLCustomModalElement;
         "custom-tab": HTMLCustomTabElement;
         "custom-tabs": HTMLCustomTabsElement;
     }
@@ -50,6 +59,8 @@ declare namespace LocalJSX {
         "kind"?: "info" | "success" | "error";
         "onAcknowledge"?: (event: CustomEvent<AcknowledgeEvent>) => void;
         "text"?: string;
+    }
+    interface CustomModal {
     }
     interface CustomTab {
         "active"?: boolean;
@@ -61,6 +72,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "custom-alert": CustomAlert;
+        "custom-modal": CustomModal;
         "custom-tab": CustomTab;
         "custom-tabs": CustomTabs;
     }
@@ -70,6 +82,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "custom-alert": LocalJSX.CustomAlert & JSXBase.HTMLAttributes<HTMLCustomAlertElement>;
+            "custom-modal": LocalJSX.CustomModal & JSXBase.HTMLAttributes<HTMLCustomModalElement>;
             "custom-tab": LocalJSX.CustomTab & JSXBase.HTMLAttributes<HTMLCustomTabElement>;
             "custom-tabs": LocalJSX.CustomTabs & JSXBase.HTMLAttributes<HTMLCustomTabsElement>;
         }
