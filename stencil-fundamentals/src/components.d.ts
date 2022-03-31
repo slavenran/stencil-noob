@@ -24,6 +24,8 @@ export namespace Components {
     interface CustomTabs {
         "activeTab": string;
     }
+    interface ToggleButton {
+    }
 }
 declare global {
     interface HTMLCustomAlertElement extends Components.CustomAlert, HTMLStencilElement {
@@ -50,11 +52,18 @@ declare global {
         prototype: HTMLCustomTabsElement;
         new (): HTMLCustomTabsElement;
     };
+    interface HTMLToggleButtonElement extends Components.ToggleButton, HTMLStencilElement {
+    }
+    var HTMLToggleButtonElement: {
+        prototype: HTMLToggleButtonElement;
+        new (): HTMLToggleButtonElement;
+    };
     interface HTMLElementTagNameMap {
         "custom-alert": HTMLCustomAlertElement;
         "custom-modal": HTMLCustomModalElement;
         "custom-tab": HTMLCustomTabElement;
         "custom-tabs": HTMLCustomTabsElement;
+        "toggle-button": HTMLToggleButtonElement;
     }
 }
 declare namespace LocalJSX {
@@ -75,11 +84,14 @@ declare namespace LocalJSX {
     interface CustomTabs {
         "activeTab"?: string;
     }
+    interface ToggleButton {
+    }
     interface IntrinsicElements {
         "custom-alert": CustomAlert;
         "custom-modal": CustomModal;
         "custom-tab": CustomTab;
         "custom-tabs": CustomTabs;
+        "toggle-button": ToggleButton;
     }
 }
 export { LocalJSX as JSX };
@@ -90,6 +102,7 @@ declare module "@stencil/core" {
             "custom-modal": LocalJSX.CustomModal & JSXBase.HTMLAttributes<HTMLCustomModalElement>;
             "custom-tab": LocalJSX.CustomTab & JSXBase.HTMLAttributes<HTMLCustomTabElement>;
             "custom-tabs": LocalJSX.CustomTabs & JSXBase.HTMLAttributes<HTMLCustomTabsElement>;
+            "toggle-button": LocalJSX.ToggleButton & JSXBase.HTMLAttributes<HTMLToggleButtonElement>;
         }
     }
 }
