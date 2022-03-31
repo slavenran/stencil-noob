@@ -13,6 +13,9 @@ export namespace Components {
         "text": string;
     }
     interface CustomModal {
+        "content": string;
+        "open": () => Promise<void>;
+        "title": string;
     }
     interface CustomTab {
         "active": boolean;
@@ -61,6 +64,8 @@ declare namespace LocalJSX {
         "text"?: string;
     }
     interface CustomModal {
+        "content"?: string;
+        "title"?: string;
     }
     interface CustomTab {
         "active"?: boolean;

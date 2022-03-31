@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
 
-    <script type="module" src="/build/stencil-fundamentals.esm.js"></script>
-    <script nomodule src="/build/stencil-fundamentals.js"></script>
-  </head>
-  <body>
-    <custom-alert text="This is a changed alert" kind="error"></custom-alert>
-    <custom-alert text="Bruh" kind="success"></custom-alert>
-    <custom-alert text="Nooooooooooooo" kind="info"></custom-alert>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
 
-    <custom-tabs active-tab="Tab1">
-      <custom-tab name="Tab1">Tab One</custom-tab>
-      <custom-tab name="Tab2">Tab Two</custom-tab>
-    </custom-tabs>
-    
-    <custom-modal></custom-modal>
-  </body>
+  <script type="module" src="/build/stencil-fundamentals.esm.js"></script>
+  <script nomodule src="/build/stencil-fundamentals.js"></script>
+</head>
+
+<body>
+  <custom-alert text="This is a changed alert" kind="error"></custom-alert>
+  <custom-alert text="Bruh" kind="success"></custom-alert>
+  <custom-alert text="Nooooooooooooo" kind="info"></custom-alert>
+
+  <custom-tabs active-tab="Tab1">
+    <custom-tab name="Tab1">Tab One</custom-tab>
+    <custom-tab name="Tab2">Tab Two</custom-tab>
+  </custom-tabs>
+
+  <button>Open modal</button>
+
+  <custom-modal title="Info" content="Important info"></custom-modal>
+
+  <script>
+    const btn = document.querySelector("button");
+    const modal = document.querySelector("custom-modal");
+    btn.addEventListener("click", () => {
+      modal.open();
+    })
+  </script>
+</body>
+
 </html>
